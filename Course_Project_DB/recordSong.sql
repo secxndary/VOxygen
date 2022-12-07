@@ -9,16 +9,7 @@ AS
 BEGIN
 	SET NOCOUNT ON;
 	DECLARE @last_song_id INT,
-			@artist_id INT =
-	(
-		SELECT A.id
-		FROM orders AS O
-		JOIN users AS U 
-			ON U.id = O.users_id
-		JOIN artists AS A
-			ON A.users_id = U.id
-		WHERE O.id = @order_id
-	);
+			@artist_id INT = (SELECT dbo.getArtistIdByOrderId(@order_id));
 	BEGIN TRY
 		IF (NULLIF(@artist_id, '') IS NULL OR NULLIF(@order_id, '') IS NULL)
 			RAISERROR('[ERROR] recordSong: Parameters cannot be null.', 17, 1);

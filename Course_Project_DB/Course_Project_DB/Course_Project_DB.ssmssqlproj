@@ -19,6 +19,12 @@
     </LogicalFolder>
     <LogicalFolder Name="Запросы" Type="0" Sorted="true">
       <Items>
+        <FileNode Name="addSongToAlbum.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:DESKTOP-8HNL9IM:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>DESKTOP-8HNL9IM</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>addSongToAlbum.sql</FullPath>
+        </FileNode>
         <FileNode Name="checkIfOrdersHasBeenCompleted.sql">
           <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:DESKTOP-8HNL9IM:True</AssociatedConnectionMoniker>
           <AssociatedConnSrvName>DESKTOP-8HNL9IM</AssociatedConnSrvName>
@@ -36,6 +42,12 @@
           <AssociatedConnSrvName>DESKTOP-8HNL9IM</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>CREATE_DATABASE.sql</FullPath>
+        </FileNode>
+        <FileNode Name="createAlbum.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:DESKTOP-8HNL9IM:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>DESKTOP-8HNL9IM</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>createAlbum.sql</FullPath>
         </FileNode>
         <FileNode Name="FUNCTIONS.sql">
           <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:DESKTOP-8HNL9IM:True</AssociatedConnectionMoniker>
@@ -61,11 +73,17 @@
           <AssociatedConnUserName />
           <FullPath>getUserOrdersFromCart.sql</FullPath>
         </FileNode>
-        <FileNode Name="INSERT_DEFAULT.sql">
+        <FileNode Name="INSERT_DEFAULTS.sql">
           <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:DESKTOP-8HNL9IM:True</AssociatedConnectionMoniker>
           <AssociatedConnSrvName>DESKTOP-8HNL9IM</AssociatedConnSrvName>
           <AssociatedConnUserName />
-          <FullPath>INSERT_DEFAULT.sql</FullPath>
+          <FullPath>INSERT_DEFAULTS.sql</FullPath>
+        </FileNode>
+        <FileNode Name="LOGIN_USER_GRANT.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:DESKTOP-8HNL9IM:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>DESKTOP-8HNL9IM</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>LOGIN_USER_GRANT.sql</FullPath>
         </FileNode>
         <FileNode Name="payForAnOrder.sql">
           <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:DESKTOP-8HNL9IM:True</AssociatedConnectionMoniker>
@@ -79,23 +97,41 @@
           <AssociatedConnUserName />
           <FullPath>placeAnOrder.sql</FullPath>
         </FileNode>
-        <FileNode Name="registerUser.sql">
+        <FileNode Name="recordSong.sql">
           <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:DESKTOP-8HNL9IM:True</AssociatedConnectionMoniker>
           <AssociatedConnSrvName>DESKTOP-8HNL9IM</AssociatedConnSrvName>
           <AssociatedConnUserName />
-          <FullPath>registerUser.sql</FullPath>
+          <FullPath>recordSong.sql</FullPath>
         </FileNode>
         <FileNode Name="searchTask.sql">
-          <AssociatedConnectionMoniker />
-          <AssociatedConnSrvName />
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:DESKTOP-8HNL9IM:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>DESKTOP-8HNL9IM</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>searchTask.sql</FullPath>
+        </FileNode>
+        <FileNode Name="signInProvider.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:DESKTOP-8HNL9IM:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>DESKTOP-8HNL9IM</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>signInProvider.sql</FullPath>
         </FileNode>
         <FileNode Name="signInUser.sql">
           <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:DESKTOP-8HNL9IM:True</AssociatedConnectionMoniker>
           <AssociatedConnSrvName>DESKTOP-8HNL9IM</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>signInUser.sql</FullPath>
+        </FileNode>
+        <FileNode Name="signUpProvider.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:DESKTOP-8HNL9IM:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>DESKTOP-8HNL9IM</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>signUpProvider.sql</FullPath>
+        </FileNode>
+        <FileNode Name="signUpUser.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:DESKTOP-8HNL9IM:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>DESKTOP-8HNL9IM</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>signUpUser.sql</FullPath>
         </FileNode>
       </Items>
     </LogicalFolder>

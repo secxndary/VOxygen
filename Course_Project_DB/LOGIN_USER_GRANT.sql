@@ -1,0 +1,49 @@
+
+
+------------------------  LOGIN  ------------------------
+
+CREATE LOGIN [USER] 
+	WITH PASSWORD= 'USER', 
+    DEFAULT_DATABASE = CP_TEST, 
+    DEFAULT_LANGUAGE = [русский], 
+    CHECK_EXPIRATION = OFF, 
+    CHECK_POLICY = OFF
+GO
+
+CREATE LOGIN [ADMIN] 
+    WITH PASSWORD= 'ADMIN', 
+    DEFAULT_DATABASE = CP_TEST, 
+    DEFAULT_LANGUAGE = [русский], 
+    CHECK_EXPIRATION = OFF, 
+    CHECK_POLICY = OFF
+GO
+
+CREATE LOGIN [PROVIDER] 
+    WITH PASSWORD= 'PROVIDER', 
+    DEFAULT_DATABASE = CP_TEST, 
+    DEFAULT_LANGUAGE = [русский], 
+    CHECK_EXPIRATION = OFF, 
+    CHECK_POLICY = OFF
+GO
+
+
+
+------------------------  USERS  ------------------------
+
+USE CP_TEST;
+CREATE USER [USER] FOR LOGIN [USER] WITH DEFAULT_SCHEMA = [dbo]
+ALTER ROLE [db_datareader] ADD MEMBER [USER];
+GO
+
+CREATE USER [ADMIN] FOR LOGIN [ADMIN] WITH DEFAULT_SCHEMA = [dbo]
+ALTER ROLE [db_datareader] ADD MEMBER [ADMIN];
+GO
+
+CREATE USER [PROVIDER] FOR LOGIN [PROVIDER] WITH DEFAULT_SCHEMA = [dbo]
+ALTER ROLE [db_datareader] ADD MEMBER [PROVIDER];
+GO
+
+
+
+------------------------  GRANTS  ------------------------
+

@@ -8,12 +8,14 @@ CREATE OR ALTER PROC signUpUser
 AS
 BEGIN
 	SET NOCOUNT ON;
-	DECLARE @countWithSameLogin INT, @countWithSameEmail INT;
+	DECLARE @countWithSameLogin INT,
+			@countWithSameEmail INT;
 	BEGIN TRY
-
-		IF EXISTS (SELECT * FROM users WHERE login = @login)
+		IF (NULLIF(@login, '') IS NULL OR NULLIF(@password, '') IS NULL OR NULLIF(@email, '') IS NULL)
+			RAISERROR('[ERROR] signUpUser: Parameters cannot be null.', 17, 1);
+		IF EXISTS (SELECT * FROM users WHERE login = LTRIM(RTRIM(@login)))
 			RAISERROR ('[ERROR] signUpUser: User with this login already exists.', 17, 1);
-		IF EXISTS (SELECT * FROM users WHERE email = @email)
+		IF EXISTS (SELECT * FROM users WHERE email = LTRIM(RTRIM(@email)))
 			RAISERROR ('[ERROR] signUpUser: User with this email already exists.', 17, 1);
 
 		INSERT INTO users(login, password, email, is_admin) 

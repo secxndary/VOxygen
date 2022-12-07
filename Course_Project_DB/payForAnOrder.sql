@@ -7,24 +7,9 @@ CREATE OR ALTER PROC payForAnOrder
 AS
 BEGIN
 	SET NOCOUNT ON;
-	DECLARE @orderPrice  INT = (SELECT dbo.getOrderPriceByOrderId(@order_id));
-	DECLARE @orderStatus INT = (SELECT status FROM orders WHERE id = @order_id);
-	DECLARE @provMargin  INT = 
-	(
-		SELECT P.trade_margin
-		FROM orders AS O
-		JOIN tasks AS T
-			ON T.id = O.task_id
-		JOIN providers AS P
-			ON P.id = T.provider_id
-		WHERE O.id = @order_id
-	);
-	DECLARE @provMarginInPercents FLOAT = @provMargin / 100;
-	DECLARE @orderPriceWithMargin INT = @orderPrice + @orderPrice * @provMarginInPercents;
-
-	PRINT '[INFO] Order price: ' + CAST(@orderPrice AS VARCHAR(10));
-	PRINT '[INFO] Provider margin: ' + CAST(@provMarginInPercents AS VARCHAR(10)) + '%';
-	PRINT '[INFO] Order price with margin: ' + CAST(@orderPrice AS VARCHAR(10));
+	DECLARE @orderPrice  INT = (SELECT dbo.getOrderPriceByOrderId(@order_id)),
+			@orderStatus INT = (SELECT status FROM orders WHERE id = @order_id),
+			@orderPriceWithMargin INT = (SELECT dbo.getOrderPriceByWithMargin(@order_id));
 
 	BEGIN TRY
 		IF (NULLIF(@payment_sum, '') IS NULL OR NULLIF(@order_id, '') IS NULL)
@@ -58,5 +43,5 @@ GO
 
 
 DECLARE @result INT;
-EXEC @result = payForAnOrder @order_id = 803, @payment_sum = 100
+EXEC @result = payForAnOrder @order_id = 805, @payment_sum = 100
 PRINT 'payForAnOrder returned: ' + CAST(@result AS VARCHAR);

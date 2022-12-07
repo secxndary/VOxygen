@@ -7,16 +7,18 @@ AS
 BEGIN
 	SET NOCOUNT ON;
 	BEGIN TRY
-		IF NOT EXISTS (
-			SELECT * 
-			FROM tasks 
-			WHERE name like '%' + LTRIM(RTRIM(CAST(@task_name AS NVARCHAR(100)))) + '%')
-		RAISERROR('[ERROR] searchTask: There is no suck task.', 17, 1);
+		IF NOT EXISTS 
+		(
+			SELECT *
+			FROM ProvidersTasks
+			WHERE Название_услуги like '%' + LTRIM(RTRIM(@task_name)) + '%'
+		)
+			RAISERROR('[ERROR] searchTask: There is no suck task.', 17, 1);
 		
-		SELECT T.name, T.price, T.duration, P.company_name
-		FROM tasks AS T JOIN providers AS P
-		ON T.provider_id = P.id
-		WHERE name like '%' + LTRIM(RTRIM(CAST(@task_name AS NVARCHAR(100)))) + '%';
+		SELECT *
+		FROM ProvidersTasks
+		WHERE Название_услуги like '%' + LTRIM(RTRIM(@task_name)) + '%';
+
 		RETURN 1;
 	END TRY
 	BEGIN CATCH

@@ -6,7 +6,7 @@ AS
 BEGIN
 	SET NOCOUNT ON;
 	BEGIN TRY
-		IF ((SELECT COUNT(*) FROM orders) = 0)
+		IF NOT EXISTS (SELECT * FROM orders)
 			RAISERROR('[ERROR] checkIfOrdersHasBeenCompleted: There is no orders.', 17, 1);
 
 		DECLARE @user_id  INT,
@@ -47,6 +47,7 @@ BEGIN
 			FETCH cursor_orders_completed INTO @user_id, @order_id, @task_id, @datetime, @status;
 		END;
 
+		DEALLOCATE cursor_orders_completed;
 		RETURN 1;
 	END TRY
 	BEGIN CATCH

@@ -7,32 +7,37 @@ CREATE OR ALTER PROC getOrderStatus
 AS
 BEGIN
 	SET NOCOUNT ON;
-	DECLARE @countOfOrders INT, @isUserHaveThisOrder INT;
 	BEGIN TRY
-		IF NOT EXISTS (SELECT * FROM users WHERE id = @user_id)
+		IF (NULLIF(@user_id, '') IS NULL OR NULLIF(@order_id, '') IS NULL)
+			RAISERROR('[ERROR] getOrderStatus: Parameters cannot be null.', 17, 1);
+		IF NOT EXISTS (SELECT * FROM users  WHERE id = @user_id)
 			RAISERROR('[ERROR] getOrderStatus: There is no user with this ID.', 17, 1);
 		IF NOT EXISTS (SELECT * FROM orders WHERE id = @order_id)
 			RAISERROR('[ERROR] getOrderStatus: There is no orders with this ID.', 17, 1);
-		SET @countOfOrders = (
-			SELECT COUNT(*) FROM users AS U JOIN orders AS O 
-			ON U.id = O.users_id
-			WHERE U.id = @user_id);
-		IF @countOfOrders = 0
+		IF NOT EXISTS 
+		(
+			SELECT * 
+			FROM users AS U 
+			JOIN orders AS O 
+				ON U.id = O.users_id
+			WHERE U.id = @user_id
+		)
 			RAISERROR('[ERROR] getOrderStatus: User does not have any orders.', 17, 1);
-		IF NOT EXISTS (
-			SELECT * FROM users AS U JOIN orders AS O 
-			ON U.id = O.users_id
-			WHERE U.id = @user_id AND O.id = @order_id)
-		RAISERROR('[ERROR] getOrderStatus: User does not have order with this ID.', 17, 1);
+		IF NOT EXISTS 
+		(
+			SELECT * 
+			FROM users AS U 
+			JOIN orders AS O 
+				ON U.id = O.users_id
+			WHERE U.id = @user_id AND O.id = @order_id
+		)
+			RAISERROR('[ERROR] getOrderStatus: User does not have order with this ID.', 17, 1);
 
-		SELECT T.name Название_услуги, O.order_datetime Дата_и_время, 
-			   T.price Цена, T.duration Длительность, S.name Статус_заказа
-		FROM users AS U JOIN orders AS O 
-			ON U.id = O.users_id JOIN tasks AS T
-			ON T.id = O.task_id JOIN providers AS P
-			ON P.id = T.provider_id JOIN status AS S
-			ON S.id = O.status
-		WHERE U.id = @user_id AND O.id = @order_id;
+		SELECT Название_услуги, Дата_и_время, Цена, Длительность,Статус_заказа
+		FROM UsersOrders
+		JOIN orders AS O
+			ON O.order_datetime = Дата_и_время
+		WHERE UsersOrders.ID = @user_id AND O.id = @order_id;
 		RETURN 1;
 	END TRY
 	BEGIN CATCH
