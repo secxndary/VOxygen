@@ -1,0 +1,66 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# SQL Server Management Studio Solution File, Format Version 18.00
+VisualStudioVersion = 15.0.28307.421
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{4F2E2C19-372F-40D8-9FA7-9D2138C6997A}") = "Course_Project_DB", "Course_Project_DB\Course_Project_DB.ssmssqlproj", "{9E868E7F-F44A-4624-B4F3-22B90519408C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Procedures_User", "Procedures_User", "{AD841313-FC75-468D-B4FF-36D05B0B6718}"
+	ProjectSection(SolutionItems) = preProject
+		checkIfOrdersHasBeenCompleted.sql = checkIfOrdersHasBeenCompleted.sql
+		getOrderStatus.sql = getOrderStatus.sql
+		getUserOrdersFromCart.sql = getUserOrdersFromCart.sql
+		payForAnOrder.sql = payForAnOrder.sql
+		placeAnOrder.sql = placeAnOrder.sql
+		recordSong.sql = recordSong.sql
+		searchTask.sql = searchTask.sql
+		signInUser.sql = signInUser.sql
+		signUpUser.sql = signUpUser.sql
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Procedures_Provider", "Procedures_Provider", "{FAD45A16-20BC-43B9-B533-62A200886F1E}"
+	ProjectSection(SolutionItems) = preProject
+		addSongToAlbum.sql = addSongToAlbum.sql
+		confirmOrder.sql = confirmOrder.sql
+		createAlbum.sql = createAlbum.sql
+		getProvidersTasks.sql = getProvidersTasks.sql
+		sendEmail.sql = sendEmail.sql
+		signInProvider.sql = signInProvider.sql
+		signUpProvider.sql = signUpProvider.sql
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Procedures_Admin", "Procedures_Admin", "{CD21C014-FEF5-41EF-9394-C37624AAA9E9}"
+	ProjectSection(SolutionItems) = preProject
+		CREATE_DATABASE.sql = CREATE_DATABASE.sql
+		INSERT_100000.sql = INSERT_100000.sql
+		INSERT_DEFAULTS.sql = INSERT_DEFAULTS.sql
+		LOGIN_USER_GRANT.sql = LOGIN_USER_GRANT.sql
+		XML_IMPORT_EXPORT.sql = XML_IMPORT_EXPORT.sql
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Views", "Views", "{97A03182-AFBC-4450-A66C-6E4F3E4D083A}"
+	ProjectSection(SolutionItems) = preProject
+		ProvidersTasks.sql = ProvidersTasks.sql
+		UsersOrders.sql = UsersOrders.sql
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Functions", "Functions", "{C814B945-4653-4181-9EE6-1D405BC924B4}"
+	ProjectSection(SolutionItems) = preProject
+		COMMON_FUNCTIONS.sql = COMMON_FUNCTIONS.sql
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Default|Default = Default|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9E868E7F-F44A-4624-B4F3-22B90519408C}.Default|Default.ActiveCfg = Default
+		{6D74C52B-96DD-4B86-80DF-1190AD4F7A44}.Default|Default.ActiveCfg = Default
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2DA56A86-1276-4FEA-9E3F-7F6B425B4F65}
+	EndGlobalSection
+EndGlobal
