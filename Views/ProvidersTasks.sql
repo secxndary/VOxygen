@@ -1,12 +1,12 @@
 CREATE OR ALTER VIEW ProvidersTasks
 AS
 	SELECT 
-		T.id ID_услуги,
-		T.name Название_услуги, 
-		T.price Стоимость_услуги, 
-		T.duration Длительность, 
-		P.company_name Поставщик_услуг,
-		P.trade_margin Процент_наценки
+		T.id ID_СѓСЃР»СѓРіРё,
+		T.name РќР°Р·РІР°РЅРёРµ_СѓСЃР»СѓРіРё, 
+		T.price РЎС‚РѕРёРјРѕСЃС‚СЊ_СѓСЃР»СѓРіРё, 
+		T.duration Р”Р»РёС‚РµР»СЊРЅРѕСЃС‚СЊ, 
+		P.company_name РџРѕСЃС‚Р°РІС‰РёРє_СѓСЃР»СѓРі,
+		P.trade_margin РџСЂРѕС†РµРЅС‚_РЅР°С†РµРЅРєРё
 	FROM 
 		tasks AS T 
 	JOIN providers AS P
